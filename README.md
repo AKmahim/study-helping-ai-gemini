@@ -1,7 +1,7 @@
 # Study Helping AI 
 ## Overview
 
-Study Helping AI Chat is a hands-on project aimed at learning how to build a multimodal chat application. This project is all about integrating different AI models to handle PDFs and communicate with the pdf.
+Study Helping AI Chat is a google gemini base chat bot for help you in study. Here you can upload a pdf book and chat with this pdf book as you need. When you ask anything to this chat bot it will give you the information base on your given pdf book.
 
 
 ## Features
