@@ -16,11 +16,13 @@ Study Helping AI Chat is a google gemini base chat bot for help you in study. He
 
 2. **Upgrade pip**: ```pip install --upgrade pip```
 
-3. **Install Requirements**: ```pip install -r requirements.txt``` 
+3. **Set Execution policy for windows shell not need for linux** : ```Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass```
 
-4. **Set Google Gemini API key on env file**
+4. **Install Requirements**: ```pip install -r requirements.txt``` 
 
-5. **Enter commands in terminal**:  ```streamlit run app.py```
+5. **Set Google Gemini API key on env file**
+
+6. **Enter commands in terminal**:  ```streamlit run app.py```
 
 
 
