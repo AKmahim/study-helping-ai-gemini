@@ -13,7 +13,7 @@ Study Helping AI Chat is a google gemini base chat bot for help you in study. He
 
 1. **Create a Virtual Environment**: I am using Python 3.10.12 currently    <br> windows: ```python -m venv env_name``` <br> linux: ```python3 -m venv env_name```
  
-2. **Activate virtual environment:** windows:  ```.\env_name\Scripts\activate``` (you need to disable shell script warning first using ```Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass``` ) <br> Linux: ```source env_name/bin/activate```
+2. **Activate virtual environment:** <br> windows:  ```.\env_name\Scripts\activate``` (you need to disable shell script warning first using ```Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass``` ) <br> Linux: ```source env_name/bin/activate```
 
 3. **Upgrade pip**: ```pip install --upgrade pip```
 
