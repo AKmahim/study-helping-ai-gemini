@@ -26,13 +26,13 @@ def get_pdf_text(pdf_docs):
 
 
 def get_text_chunks(text):
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=500)
     chunks = text_splitter.split_text(text)
     return chunks
 
 
 def get_vector_store(text_chunks):
-    embeddings = GoogleGenerativeAIEmbeddings(model = "models/text-multilingual-embedding-002")
+    embeddings = GoogleGenerativeAIEmbeddings(model = "models/embedding-001")
     vector_store = FAISS.from_texts(text_chunks, embedding=embeddings)
     vector_store.save_local("faiss_index")
 
@@ -40,15 +40,14 @@ def get_vector_store(text_chunks):
 def get_conversational_chain():
 
     prompt_template = """
-    Answer the question as detailed as possible from the provided context, make sure to provide all the details, if the answer is not in
-    provided context just say, "answer is not available in the context", don't provide the wrong answer\n\n
+    Try to answer the question as detailed as possible in bangla from the provided context \n\n
     Context:\n {context}?\n
     Question: \n{question}\n
 
     Answer:
     """
 
-    model = ChatGoogleGenerativeAI(model="gemini-1.5-flash-latest",
+    model = ChatGoogleGenerativeAI(model="gemini-1.5-flash-002",
                              temperature=0.3)
 
     prompt = PromptTemplate(template = prompt_template, input_variables = ["context", "question"])
@@ -59,7 +58,7 @@ def get_conversational_chain():
 
 
 def user_input(user_question):
-    embeddings = GoogleGenerativeAIEmbeddings(model = "models/text-multilingual-embedding-002")
+    embeddings = GoogleGenerativeAIEmbeddings(model = "models/text-embedding-004")
     
     new_db = FAISS.load_local("faiss_index", embeddings,allow_dangerous_deserialization=True)
     docs = new_db.similarity_search(user_question)
