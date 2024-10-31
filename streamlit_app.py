@@ -26,7 +26,7 @@ def get_pdf_text(pdf_docs):
 
 
 def get_text_chunks(text):
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=500)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=2000, chunk_overlap=100)
     chunks = text_splitter.split_text(text)
     return chunks
 
@@ -58,7 +58,7 @@ def get_conversational_chain():
 
 
 def user_input(user_question):
-    embeddings = GoogleGenerativeAIEmbeddings(model = "models/text-embedding-004")
+    embeddings = GoogleGenerativeAIEmbeddings(model = "models/embedding-001")
     
     new_db = FAISS.load_local("faiss_index", embeddings,allow_dangerous_deserialization=True)
     docs = new_db.similarity_search(user_question)
@@ -77,8 +77,8 @@ def user_input(user_question):
 
 
 def main():
-    st.set_page_config("Study Helping AI")
-    st.header("Study Helping AI")
+    st.set_page_config("Sukhi Poribar")
+    st.header("Sukhi poribar")
 
     user_question = st.text_input("Ask a Question from the PDF Files")
 
